@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="R-SMART Sıkça Sorulan Sorular - Platform, kurulum, fiyatlandırma ve teknik destek hakkında merak ettikleriniz">
+    <title>R-SMART | Sıkça Sorulan Sorular</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="platform.html">Platform</a></li>
+                    <li><a href="solutions.html">Çözümler</a></li>
+                    <li><a href="use-cases.html">Kullanım Senaryoları</a></li>
+                    <li><a href="why-rsmart.html">Neden R-SMART?</a></li>
+                    <li><a href="faq.html" class="active">SSS</a></li>
+                    <li><a href="about.html">Kurumsal</a></li>
+                    <li><a href="contact.html" class="btn-nav-demo">Demo Talep Et</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Sıkça Sorulan Sorular</h1>
+            <p class="page-subtitle">R-SMART platformu hakkında merak ettiklerinizin yanıtları</p>
+        </div>
+    </section>
+
+    <!-- FAQ Filter -->
+    <section class="faq-section section-padding">
+        <div class="container">
+            <!-- Category Filter Tabs -->
+            <div class="faq-categories" id="faqCategories">
+                <button class="faq-category-btn active" data-category="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>Tümü</span>
+                </button>
+                <button class="faq-category-btn" data-category="genel">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Genel</span>
+                </button>
+                <button class="faq-category-btn" data-category="platform">
+                    <i class="fas fa-laptop-code"></i>
+                    <span>Platform</span>
+                </button>
+                <button class="faq-category-btn" data-category="fiyat">
+                    <i class="fas fa-tag"></i>
+                    <span>Fiyatlandırma</span>
+                </button>
+                <button class="faq-category-btn" data-category="teknik">
+                    <i class="fas fa-cogs"></i>
+                    <span>Teknik</span>
+                </button>
+                <button class="faq-category-btn" data-category="destek">
+                    <i class="fas fa-headset"></i>
+                    <span>Destek</span>
+                </button>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="faq-list" id="faqList">
+
+                <!-- Genel Sorular -->
+                <div class="faq-item" data-category="genel" data-aos="fade-up">
+                    <button class="faq-question" id="faq-q1">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Genel</span>
+                            <h3>R-SMART nedir?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a1">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, kurumsal strateji ve performans yönetimi alanında entegre platform çözümleri
+                                sunan yeni nesil bir yönetim platformudur. Strateji oluşturma, hedef ve performans
+                                yönetimi, proje yürütme, insan kaynağı ve kalite süreçlerini tek bir bütün halinde
+                                yönetmenizi sağlar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="genel" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question" id="faq-q2">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Genel</span>
+                            <h3>R-SMART hangi sektörlere hitap eder?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a2">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, kamu kurumları, özel sektör şirketleri, belediyeler, üniversiteler ve sivil
+                                toplum kuruluşları dahil tüm sektörlere hitap eder. Esnek yapısı sayesinde her ölçekteki
+                                organizasyonun ihtiyaçlarına uyarlanabilir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="genel" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" id="faq-q3">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Genel</span>
+                            <h3>R-SMART'ın diğer platformlardan farkı nedir?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a3">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, strateji, proje, performans, İK ve kalite yönetimini tek bir platformda bütünsel
+                                olarak sunan nadir çözümlerden biridir. 4 katmanlı mimari yaklaşımı (Strategy,
+                                Execution, Performance, Improvement), yapay zeka desteği, no-code form builder ve çoklu
+                                dil desteği ile öne çıkar.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Platform Soruları -->
+                <div class="faq-item" data-category="platform" data-aos="fade-up">
+                    <button class="faq-question" id="faq-q4">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Platform</span>
+                            <h3>R-SMART hangi modülleri içerir?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a4">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART platformu aşağıdaki ana modülleri içerir:</p>
+                            <ul>
+                                <li><strong>Strategy Suite:</strong> Balanced Scorecard, Stratejik Planlama, KPI
+                                    Yönetimi</li>
+                                <li><strong>Project Management:</strong> Proje Portföy Yönetimi, İnovasyon Yönetimi,
+                                    Kaynak Planlama</li>
+                                <li><strong>Human Resource:</strong> Performans Yönetimi, Talent Yönetimi, İşe Alım
+                                    Süreçleri</li>
+                                <li><strong>Business Intelligence:</strong> Özel Dashboard'lar, Gelişmiş Analitik,
+                                    Gerçek Zamanlı Raporlama</li>
+                                <li><strong>Productivity:</strong> Aksiyon Yönetimi, Toplantı Yönetimi, Görev Takibi
+                                </li>
+                                <li><strong>Quality Management:</strong> DİF Yönetimi, Şikayet Takibi, Süreç İyileştirme
+                                </li>
+                                <li><strong>Form & No-Code Automation:</strong> Sürükle-Bırak Form Builder, Workflow
+                                    Otomasyonu</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="platform" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question" id="faq-q5">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Platform</span>
+                            <h3>R-SMART mobil cihazlarda kullanılabilir mi?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a5">
+                        <div class="faq-answer-inner">
+                            <p>Evet, R-SMART iOS ve Android için native mobil uygulamalara sahiptir. Ayrıca web
+                                tarayıcısı üzerinden de tam responsive bir deneyim sunar. Mobil uygulama ile her yerden,
+                                her zaman kurumsal süreçlerinizi yönetebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="platform" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" id="faq-q6">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Platform</span>
+                            <h3>Yapay zeka özellikleri nelerdir?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a6">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART'ın AI destekli özellikleri şunları içerir:</p>
+                            <ul>
+                                <li>Ses tanıma ve yazıya dökme (Speech-to-Text)</li>
+                                <li>AI destekli anlamlandırma ve öneri sistemleri</li>
+                                <li>Akıllı asistan desteği ile hızlı karar alma</li>
+                                <li>Otomatik rapor oluşturma ve analiz</li>
+                                <li>Tahminleme ve trend analizi</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="platform" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question" id="faq-q7">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Platform</span>
+                            <h3>R-SMART çoklu dil desteği sunuyor mu?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a7">
+                        <div class="faq-answer-inner">
+                            <p>Evet, R-SMART 10'dan fazla dilde kullanılabilir. Türkçe ve İngilizce başta olmak üzere,
+                                global organizasyonların ihtiyaçlarını karşılayacak geniş dil desteği sunar. Arayüz dili
+                                kullanıcı bazında ayarlanabilir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fiyatlandırma Soruları -->
+                <div class="faq-item" data-category="fiyat" data-aos="fade-up">
+                    <button class="faq-question" id="faq-q8">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Fiyatlandırma</span>
+                            <h3>R-SMART'ın fiyatlandırma modeli nasıldır?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a8">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, kurumunuzun ihtiyaçlarına göre özelleştirilmiş fiyatlandırma sunar. Kullanıcı
+                                sayısı, seçilen modüller ve ek özellikler gibi faktörlere bağlı olarak esnek paketler
+                                oluşturulabilir. Detaylı fiyat teklifi için bizimle iletişime geçebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="fiyat" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question" id="faq-q9">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Fiyatlandırma</span>
+                            <h3>Ücretsiz deneme süresi var mı?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a9">
+                        <div class="faq-answer-inner">
+                            <p>Evet, R-SMART ilk ayınızı ücretsiz deneme olarak sunar. Kredi kartı bilgisi gerektirmeden
+                                platformu tam kapsamlı olarak deneyebilir, tüm modülleri keşfedebilirsiniz. Ayrıca 30
+                                gün para iade garantisi ile risksiz bir başlangıç yapabilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Teknik Sorular -->
+                <div class="faq-item" data-category="teknik" data-aos="fade-up">
+                    <button class="faq-question" id="faq-q10">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Teknik</span>
+                            <h3>Kurulum süreci ne kadar sürer?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a10">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART'ın cloud altyapısı sayesinde kurulum 24 saat içinde tamamlanabilir. Temel
+                                yapılandırma, kullanıcı oluşturma ve veri aktarımı dahil süreç, deneyimli ekibimiz
+                                tarafından hızla gerçekleştirilir. Özelleştirilmiş konfigürasyonlar için ek süre
+                                gerekebilir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="teknik" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question" id="faq-q11">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Teknik</span>
+                            <h3>Mevcut sistemlerle entegrasyon mümkün mü?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a11">
+                        <div class="faq-answer-inner">
+                            <p>Evet, R-SMART REST API ve webhook desteği ile mevcut ERP, CRM, HRIS ve diğer kurumsal
+                                sistemlerinizle kolayca entegre edilebilir. Ayrıca SSO (Single Sign-On) desteği ile
+                                kullanıcı yönetimi merkezileştirilebilir.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="teknik" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" id="faq-q12">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Teknik</span>
+                            <h3>Verilerimizin güvenliği nasıl sağlanıyor?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a12">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, ISO 27001 güvenlik standartlarına uygun olarak geliştirilmiştir. Verileriniz
+                                uçtan uca şifrelenir, düzenli yedekleme yapılır ve Zero Trust güvenlik mimarisi
+                                uygulanır. KVKK uyumlu veri işleme politikalarımız ile verileriniz her zaman güvende
+                                olur.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="teknik" data-aos="fade-up" data-aos-delay="150">
+                    <button class="faq-question" id="faq-q13">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Teknik</span>
+                            <h3>Cloud mu yoksa on-premise mi?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a13">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, cloud-native bir platform olarak tasarlanmıştır ve SaaS modeli ile
+                                sunulmaktadır. Ancak özel gereksinimler doğrultusunda on-premise veya hibrit kurulum
+                                seçenekleri de mevcuttur. İhtiyacınıza en uygun dağıtım modelini ekibimizle birlikte
+                                belirleyebilirsiniz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Destek Soruları -->
+                <div class="faq-item" data-category="destek" data-aos="fade-up">
+                    <button class="faq-question" id="faq-q14">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Destek</span>
+                            <h3>Teknik destek nasıl sağlanıyor?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a14">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART, 7/24 teknik destek hizmeti sunar. Telefon, e-posta ve canlı destek kanalları
+                                üzerinden uzman ekibimize ulaşabilirsiniz. Ayrıca kapsamlı dokümantasyon ve video
+                                eğitimler ile self-servis destek de sağlanmaktadır.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="destek" data-aos="fade-up" data-aos-delay="50">
+                    <button class="faq-question" id="faq-q15">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Destek</span>
+                            <h3>Eğitim desteği sağlıyor musunuz?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a15">
+                        <div class="faq-answer-inner">
+                            <p>Evet, R-SMART kullanımına başladığınızda kapsamlı eğitim programları sunuyoruz. Yönetici
+                                ve kullanıcı düzeyinde online/yüz yüze eğitimler, video eğitim kütüphanesi ve sürekli
+                                güncellenen kullanım kılavuzları ile ekibinizin hızla adapte olmasını sağlıyoruz.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="destek" data-aos="fade-up" data-aos-delay="100">
+                    <button class="faq-question" id="faq-q16">
+                        <div class="faq-question-content">
+                            <span class="faq-category-tag">Destek</span>
+                            <h3>Platform güncellemeleri ne sıklıkla yapılır?</h3>
+                        </div>
+                        <div class="faq-icon">
+                            <i class="fas fa-plus"></i>
+                        </div>
+                    </button>
+                    <div class="faq-answer" id="faq-a16">
+                        <div class="faq-answer-inner">
+                            <p>R-SMART düzenli olarak güncellenir ve yeni özellikler eklenir. Büyük güncellemeler
+                                çeyreklik dönemlerde, küçük iyileştirmeler ve düzeltmeler ise aylık olarak yayınlanır.
+                                Tüm güncellemeler otomatik olarak uygulanır ve mevcut verileriniz korunur.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- No Results Message -->
+            <div class="faq-no-results" id="faqNoResults" style="display: none;">
+                <div class="faq-no-results-icon">
+                    <i class="fas fa-search"></i>
+                </div>
+                <h3>Bu kategoride henüz soru bulunmuyor</h3>
+                <p>Başka bir kategori seçebilir veya bizimle iletişime geçebilirsiniz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="faq-cta section-padding bg-light">
+        <div class="container">
+            <div class="faq-cta-content">
+                <div class="faq-cta-icon">
+                    <i class="fas fa-comments"></i>
+                </div>
+                <h2 class="section-title">Sorunuzun yanıtını bulamadınız mı?</h2>
+                <p class="section-subtitle">Uzman ekibimiz tüm sorularınızı yanıtlamak için hazır. Bizimle iletişime
+                    geçin.</p>
+                <div class="faq-cta-buttons">
+                    <a href="contact.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-envelope"></i>
+                        <span>Bize Ulaşın</span>
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary btn-large">
+                        <i class="fas fa-calendar-check"></i>
+                        <span>Demo Talep Et</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </div>
+                    <p class="footer-description">Kurumsal strateji ve performans yönetimi platformu ile kurumunuzun
+                        dijital dönüşümünü gerçekleştirin.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="services.html">Hizmetler</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Hizmetler</h4>
+                    <ul class="footer-links">
+                        <li><a href="services.html">Yazılım Geliştirme</a></li>
+                        <li><a href="services.html">Bulut Çözümleri</a></li>
+                        <li><a href="services.html">Mobil Uygulamalar</a></li>
+                        <li><a href="services.html">Danışmanlık</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">İletişim</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@rsmart.com.tr</li>
+                        <li><i class="fas fa-phone"></i> +90 552 003 37 03</li>
+                        <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 R-SMART. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Accordion & Category Filter
+        document.addEventListener('DOMContentLoaded', function () {
+            // Accordion Toggle
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.contains('active');
+
+                    // Close all other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                            const otherAnswer = otherItem.querySelector('.faq-answer');
+                            otherAnswer.style.maxHeight = null;
+                        }
+                    });
+
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    const answer = item.querySelector('.faq-answer');
+
+                    if (!isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + 'px';
+                    } else {
+                        answer.style.maxHeight = null;
+                    }
+                });
+            });
+
+            // Category Filter
+            const categoryBtns = document.querySelectorAll('.faq-category-btn');
+            const noResults = document.getElementById('faqNoResults');
+
+            categoryBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Update active button
+                    categoryBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+
+                    const category = btn.getAttribute('data-category');
+                    let visibleCount = 0;
+
+                    faqItems.forEach(item => {
+                        // Close all items first
+                        item.classList.remove('active');
+                        item.querySelector('.faq-answer').style.maxHeight = null;
+
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = '';
+                            visibleCount++;
+                            // Re-trigger animation
+                            item.style.opacity = '0';
+                            item.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateY(0)';
+                            }, 50);
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    // Show/hide no results message
+                    noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

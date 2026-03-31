@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="R-SMART Çözüm Aileleri - Kurumsal yönetim için entegre çözümler">
+    <title>R-SMART | Çözümler</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Solution Detail Card */
+        .solution-detail {
+            margin-bottom: 100px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .solution-detail:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .solution-detail:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .solution-header-main {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding: 40px;
+            background: linear-gradient(135deg, rgba(139, 49, 232, 0.1) 0%, rgba(233, 30, 140, 0.05) 100%);
+            border-radius: 24px;
+            border: 2px solid rgba(139, 49, 232, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .solution-header-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: var(--gradient-primary);
+        }
+
+        .solution-icon-large {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            font-size: 3rem;
+            color: var(--white);
+            flex-shrink: 0;
+            box-shadow: 0 10px 40px rgba(139, 49, 232, 0.3);
+        }
+
+        .solution-header-content h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .solution-tagline {
+            font-size: 1.3rem;
+            color: var(--gray-600);
+            font-weight: 500;
+            font-style: italic;
+        }
+
+        /* Content Sections */
+        .solution-content {
+            display: grid;
+            gap: 40px;
+        }
+
+        .content-block {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(139, 49, 232, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .content-block:hover {
+            box-shadow: 0 8px 30px rgba(139, 49, 232, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .content-block h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .content-block h3::before {
+            content: '';
+            width: 4px;
+            height: 30px;
+            background: var(--gradient-primary);
+            border-radius: 2px;
+        }
+
+        .content-block ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .content-block ul li {
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            color: var(--gray-700);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .content-block ul li:last-child {
+            border-bottom: none;
+        }
+
+        .content-block ul li::before {
+            content: '→';
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+            margin-top: -2px;
+        }
+
+        /* Problem and Solution Blocks */
+        .problem-solution-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .problem-block {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05) 0%, rgba(239, 68, 68, 0.02) 100%);
+            border: 2px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .problem-block h3::before {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+        }
+
+        .problem-block ul li::before {
+            content: '⚠';
+            color: #ef4444;
+        }
+
+        .solution-block {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.05) 0%, rgba(34, 197, 94, 0.02) 100%);
+            border: 2px solid rgba(34, 197, 94, 0.2);
+        }
+
+        .solution-block h3::before {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+        }
+
+        .solution-block ul li::before {
+            content: '✓';
+            color: #22c55e;
+        }
+
+        /* Value Cards */
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: var(--gradient-primary);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: var(--white);
+            box-shadow: 0 8px 25px rgba(139, 49, 232, 0.25);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(139, 49, 232, 0.35);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .value-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Target Audience */
+        .target-audience {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .audience-tag {
+            background: linear-gradient(135deg, rgba(139, 49, 232, 0.1) 0%, rgba(233, 30, 140, 0.1) 100%);
+            color: var(--primary);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: 2px solid rgba(139, 49, 232, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .audience-tag:hover {
+            background: var(--gradient-primary);
+            color: var(--white);
+            border-color: transparent;
+            transform: scale(1.05);
+        }
+
+        .audience-tag i {
+            font-size: 1.1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .solutions-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .problem-solution-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .solution-header-main {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .solution-header-content h2 {
+                font-size: 2rem;
+            }
+
+            .value-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .solutions-hero h1 {
+                font-size: 2rem;
+            }
+
+            .solution-icon-large {
+                width: 80px;
+                height: 80px;
+                font-size: 2.5rem;
+            }
+        }
+
+        .solution-detail:last-of-type {
+            margin-bottom: 24px;
+        }
+
+        .cta.section-padding {
+            padding-top: 48px;
+        }
+
+        section.section-padding:not(.cta) {
+            padding-bottom: 40px !important;
+        }
+
+        .cta.section-padding {
+            padding-top: 48px !important;
+        }
+
+        .section-padding {
+            transform: none !important;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="platform.html">Platform</a></li>
+                    <li><a href="solutions.html" class="active">Çözümler</a></li>
+                    <li><a href="use-cases.html">Kullanım Senaryoları</a></li>
+                    <li><a href="why-rsmart.html">Neden R-SMART?</a></li>
+                    <li><a href="faq.html">SSS</a></li>
+                    <li><a href="about.html">Kurumsal</a></li>
+                    <li><a href="contact.html" class="btn-nav-demo">Demo Talep Et</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Solutions Hero -->
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Çözümler</h1>
+            <p class="page-subtitle">Kurumunuzun stratejiden operasyona tüm süreçlerini yöneten entegre çözüm aileleri
+            </p>
+        </div>
+    </section>
+
+    <!-- Solutions Content -->
+    <section class="section-padding">
+        <div class="container">
+
+            <!-- Strategy Suite -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-chess"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Strateji Paketi</h2>
+                        <p class="solution-tagline">Strateji Bir Doküman Değil, Yönetim Sistemidir</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="problem-solution-grid">
+                        <div class="content-block problem-block">
+                            <h3>Kurumlarda Gerçek Durum</h3>
+                            <ul>
+                                <li>Strateji yıllık planlarda hazırlanır, sunumlarda paylaşılır, günlük karar
+                                    mekanizmalarına yansımaz.</li>
+                                <li>Hedefler belirlenir ancak sorumluluk, başarı kriteri, ölçüm KPI'ı ve aksiyon
+                                    bağlantıları net değildir.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block solution-block">
+                            <h3>R-SMART Yaklaşımı</h3>
+                            <ul>
+                                <li>Strategy Suite, stratejiyi tasarlanan bir fikirden yönetilen bir sisteme dönüştürür.
+                                </li>
+                                <li>Strateji; hedeflere, KPI'lara, aksiyonlara ve sorumlulara doğrudan bağlanır.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Kapsam</h3>
+                        <ul>
+                            <li><strong>Stratejik Analiz:</strong> SWOT, PESTEL, Porter 5 Güç, hedef pazar/odak alan
+                                seçimi, dijital olgunluk ölçümü</li>
+                            <li><strong>Strateji Kurgusu:</strong> kurumsal amaç/öncelikler, hedef-alt hedef
+                                hiyerarşisi, senaryo bazlı alternatifler</li>
+                            <li><strong>Performans & Ölçüm:</strong> Balanced Scorecard, stratejik haritalar, performans
+                                karneleri, hedef–bütçe–kaynak ilişkisi</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Kimler İçin?</h3>
+                        <div class="target-audience">
+                            <span class="audience-tag"><i class="fas fa-user-tie"></i> Üst yönetim</span>
+                            <span class="audience-tag"><i class="fas fa-building"></i> Strateji ofisleri</span>
+                            <span class="audience-tag"><i class="fas fa-sitemap"></i> Holding ve grup şirketleri</span>
+                            <span class="audience-tag"><i class="fas fa-sync-alt"></i> Kurumsal dönüşüm yaşayan
+                                organizasyonlar</span>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-hands-helping"></i>
+                                <h4>Strateji sahiplenilir</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-chart-line"></i>
+                                <h4>Yönetim ilerlemeyi tek ekrandan görür</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-ruler-combined"></i>
+                                <h4>Hedefler ölçülebilir hale gelir</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <h4>Stratejik sapmalar erken fark edilir</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Management -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Project Management</h2>
+                        <p class="solution-tagline">Projeler Yapılmak İçin Değil, Değer Üretmek İçin Vardır</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="problem-solution-grid">
+                        <div class="content-block problem-block">
+                            <h3>Kurumlarda Gerçek Durum</h3>
+                            <ul>
+                                <li>Projeler çoktur ve yoğundur; hangisinin gerçekten önemli olduğu net değildir.</li>
+                                <li>Kaynaklar dağılır; gecikmeler geç fark edilir; projelerin stratejiyle ilişkisi
+                                    kopar.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block solution-block">
+                            <h3>R-SMART Yaklaşımı</h3>
+                            <ul>
+                                <li>Projeler operasyonel işler değil, stratejik yatırımlar olarak ele alınır.</li>
+                                <li>Her proje bir hedefe bağlıdır; bir KPI'yı etkiler; yönetim tarafından ölçülür.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Kapsam</h3>
+                        <ul>
+                            <li><strong>Fikirden Projeye:</strong> fikir havuzu, değerlendirme/önceliklendirme, yönetici
+                                onay mekanizmaları</li>
+                            <li><strong>Proje Yönetimi:</strong> Stage-Gate, fazlar/karar noktaları, Gantt, kaynak &
+                                kapasite yönetimi</li>
+                            <li><strong>İzleme & Raporlama:</strong> ilerleme, bütçe/gerçekleşme, risk & gecikme
+                                analizi, performans raporları</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-bullseye"></i>
+                                <h4>Doğru projelere yatırım</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-chart-pie"></i>
+                                <h4>Kaynak israfında azalma</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-link"></i>
+                                <h4>Projelerin stratejiye hizmet etmesi</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Risklerin önceden görülmesi</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Human Resource -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Human Resource</h2>
+                        <p class="solution-tagline">İnsan Kaynağı Operasyon Değil, Stratejik Güçtür</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="problem-solution-grid">
+                        <div class="content-block problem-block">
+                            <h3>Kurumlarda Gerçek Durum</h3>
+                            <ul>
+                                <li>İK süreçleri talep ve onay odaklıdır.</li>
+                                <li>Performans değerlendirmeleri subjektif olabilir.</li>
+                                <li>Yetenekler görünmez kalabilir.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block solution-block">
+                            <h3>R-SMART Yaklaşımı</h3>
+                            <ul>
+                                <li>İnsan kaynağı hedefler, görevler, yetkinlikler ve performans ile aynı sistemde
+                                    bütünleştirilir.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Kapsam</h3>
+                        <ul>
+                            <li><strong>Operasyonel İK:</strong> izin/mesai/avans/araç/personel talepleri, özlük
+                                dosyaları, disiplin süreçleri</li>
+                            <li><strong>İşe Alım:</strong> aday başvuruları, CV havuzu, mülakat süreçleri, teklif ve
+                                deneme süreci takibi</li>
+                            <li><strong>Performans & Yetenek:</strong> yetkinlik matrisleri, görev tanımları, 90/180/360
+                                derece değerlendirme, yıldız çalışan analizi</li>
+                            <li><strong>Organizasyon:</strong> organizasyon şeması, norm kadro, yedekleme planları</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-balance-scale"></i>
+                                <h4>Objektif performans ölçümü</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-user-check"></i>
+                                <h4>Doğru kişiye doğru hedef</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-eye"></i>
+                                <h4>Yeteneklerin görünür olması</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-infinity"></i>
+                                <h4>Kurumsal süreklilik</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Intelligence -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Business Intelligence</h2>
+                        <p class="solution-tagline">Veri Var Ama Görünmüyorsa, Değer Üretmez</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="problem-solution-grid">
+                        <div class="content-block problem-block">
+                            <h3>Kurumlarda Gerçek Durum</h3>
+                            <ul>
+                                <li>Veriler farklı sistemlerde, formatlarda ve yorumlarla tutulur.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block solution-block">
+                            <h3>R-SMART Yaklaşımı</h3>
+                            <ul>
+                                <li>Tüm modüllerden gelen veriler tek doğruluk kaynağında birleştirilir.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Kapsam</h3>
+                        <ul>
+                            <li><strong>KPI Dashboardları:</strong> Gerçek zamanlı performans takibi</li>
+                            <li><strong>Proje ve Portföy Raporları:</strong> Proje ilerleme ve kaynak kullanımı
+                                analizleri</li>
+                            <li><strong>İnsan Kaynağı Analitiği:</strong> İş gücü verimliliği ve yetenek dağılımı</li>
+                            <li><strong>Rol Bazlı Yetkilendirme:</strong> Her kullanıcının sadece ilgili veriye erişimi
+                            </li>
+                            <li><strong>Self-Service Raporlama:</strong> Kullanıcıların kendi raporlarını
+                                oluşturabilmesi</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-bolt"></i>
+                                <h4>Hızlı ve doğru kararlar</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-eye"></i>
+                                <h4>Şeffaf yönetim</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <h4>Tek bakışta kurumsal durum</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Productivity -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Productivity</h2>
+                        <p class="solution-tagline">İşler Takip Edilmiyorsa, Yapılmamış Sayılır</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="content-block">
+                        <h3>Action Management</h3>
+                        <ul>
+                            <li><strong>Görev ve Aksiyon Atama:</strong> Kişilere ve ekiplere net görev dağılımı</li>
+                            <li><strong>Sahiplik ve Tarih Takibi:</strong> Sorumlular ve terminlerin belirlenmesi</li>
+                            <li><strong>Hatırlatma ve Gecikme Uyarıları:</strong> Otomatik bildirimlerle iş takibi</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Meeting Management</h3>
+                        <ul>
+                            <li><strong>Toplantı Gündemleri:</strong> Önceden belirlenen ve paylaşılan ajandalar</li>
+                            <li><strong>Karar Kayıtları:</strong> Toplantı notlarının ve kararlarının dijital ortamda
+                                saklanması</li>
+                            <li><strong>Oylama:</strong> Kararların katılımcılarla oylanması</li>
+                            <li><strong>Toplantı Sonrası Aksiyonlar:</strong> Alınan kararların anında göreve
+                                dönüştürülmesi</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-check-double"></i>
+                                <h4>İşler unutulmaz</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-user-tag"></i>
+                                <h4>Sorumluluk netleşir</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-handshake"></i>
+                                <h4>Toplantılar sonuç üretir</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quality Management -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Quality Management</h2>
+                        <p class="solution-tagline">Kalite Kontrol Değil, Sürekli İyileştirmedir</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="problem-solution-grid">
+                        <div class="content-block solution-block" style="grid-column: span 2;">
+                            <h3>R-SMART Yaklaşımı</h3>
+                            <ul>
+                                <li>Hataları sadece kaydetmez; analiz eder, aksiyona dönüştürür ve izler.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Kapsam</h3>
+                        <ul>
+                            <li><strong>DİF Yönetimi:</strong> Düzeltici ve İyileştirici Faaliyetlerin takibi</li>
+                            <li><strong>Müşteri Şikayetleri:</strong> Şikayet yönetimi ve çözüm süreci</li>
+                            <li><strong>Süreç Çizimleri:</strong> Süreçlerin haritalanması ve dokümantasyonu</li>
+                            <li><strong>Kök Neden Analizi:</strong> Hataların kaynağına inen analiz araçları</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Sağlanan Değer</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-shield-alt"></i>
+                                <h4>Riskler azalır</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-level-up-alt"></i>
+                                <h4>Süreçler iyileşir</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-medal"></i>
+                                <h4>Kurumsal kalite kültürü oluşur</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Form & No-Code Automation -->
+            <div class="solution-detail">
+                <div class="solution-header-main">
+                    <div class="solution-icon-large">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="solution-header-content">
+                        <h2>R-SMART – Form & No-Code Automation</h2>
+                        <p class="solution-tagline">Formlar Sürecin Başlangıcıdır, Sonu Değil</p>
+                    </div>
+                </div>
+
+                <div class="solution-content">
+                    <div class="content-block">
+                        <p style="font-size: 1.1rem; color: var(--gray-600); line-height: 1.6;">
+                            R-SMART, kurumların kağıt, PDF ve manuel formlarını yalnızca dijitalleştirmekle kalmaz; bu
+                            formları uçtan uca iş süreçlerine, onay akışlarına ve anlamlı veriye dönüştürür.
+                        </p>
+                    </div>
+
+                    <div class="problem-solution-grid">
+                        <div class="content-block problem-block">
+                            <h3>Formlar Her Yerde, Kontrol Hiçbir Yerde</h3>
+                            <ul>
+                                <li>İzin formları e-posta ile dolaşır.</li>
+                                <li>PDF’ler doldurulur, çıktı alınır.</li>
+                                <li>Onaylar WhatsApp veya sözlü ilerler.</li>
+                                <li>Form verileri raporlanamaz.</li>
+                                <li><strong>Sonuç:</strong> Süreçler yavaşlar, hatalar artar, veri kaybolur, BT ekipleri
+                                    küçük taleplerle boğulur.</li>
+                            </ul>
+                        </div>
+
+                        <div class="content-block solution-block">
+                            <h3>Form Bir Başlangıçtır, Asla Son Nokta Değil</h3>
+                            <ul>
+                                <li>Her form bir sürecin parçasıdır.</li>
+                                <li>Her form bir onay mekanizmasına bağlıdır.</li>
+                                <li>Her form rapor üretmelidir.</li>
+                                <li>R-SMART’de form, sürecin giriş kapısıdır.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Detaylı Özellikler</h3>
+                        <ul>
+                            <li><strong>Yapay Zeka Destekli Form Oluşturma:</strong> PDF, tarama dokümanı ve
+                                görsellerdeki alanları otomatik algılar. Alanlar; metin, tarih, sayı, seçim, dosya gibi
+                                bileşenlere dönüştürülür. Saatler süren form tanımları dakikalara iner.</li>
+                            <li><strong>No-Code Form Tasarımı:</strong> Sürükle-bırak ve kural bazlı yapı ile formlar
+                                oluşturulur/güncellenir. Yetkili kullanıcılar tarafından, BT’ye bağımlı olmadan
+                                yönetilir.</li>
+                            <li><strong>Onay Akışları & Süreç Yönetimi:</strong> Tek adımlı, çok adımlı veya koşullu
+                                onay süreçleri tanımlanır. (Örn: İzin > 5 gün → Üst yönetici onayı). Standartlaşmış
+                                süreçler, şeffaf onay audit trail sağlar.</li>
+                            <li><strong>Yetkilendirme & Güvenlik:</strong> Form bazında görüntüleme, düzenleme, onaylama
+                                yetkileri. Rol/departman bazlı sınırlar.</li>
+                            <li><strong>Formdan Veriye, Veriden Karara:</strong> Doldurulan formlar anlık raporlara ve
+                                dashboard’lara yansır. Formlar KPI’lara bağlanabilir.</li>
+                            <li><strong>Platform ile Entegrasyon:</strong> HR, Project, Quality, BI modülleriyle doğal
+                                olarak entegredir. Aynı veri tekrar edilmez.</li>
+                            <li><strong>Mobil & Kullanıcı Deneyimi:</strong> Mobil uyumlu formlar, offline senaryolar ve
+                                çoklu ekran deneyimi.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-block">
+                        <h3>Değer Özeti</h3>
+                        <div class="value-grid">
+                            <div class="value-card">
+                                <i class="fas fa-hand-holding-dollar"></i>
+                                <h4>Manuel iş yükü azalır</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-rocket"></i>
+                                <h4>Süreçler hızlanır</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-check-circle"></i>
+                                <h4>Hatalar düşer</h4>
+                            </div>
+                            <div class="value-card">
+                                <i class="fas fa-server"></i>
+                                <h4>BT üzerindeki baskı azalır</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="content-block"
+                        style="text-align: center; background: var(--gradient-primary); color: white;">
+                        <h3 style="justify-content: center; color: white; margin-bottom: 0;">Formlar dijitalleşmez.
+                            Süreçler dijitalleşir.</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section-padding">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Çözümlerimizi Keşfetmeye Hazır mısınız?</h2>
+                <p class="cta-subtitle">Demo talep edin ve R-SMART platformunun gücünü deneyimleyin</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Demo Talep Edin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </div>
+                    <p class="footer-description">Kurumsal strateji ve performans yönetimi platformu ile kurumunuzun
+                        dijital dönüşümünü gerçekleştirin.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="platform.html">Platform</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Çözümler</h4>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Strategy Suite</a></li>
+                        <li><a href="solutions.html">Project Management</a></li>
+                        <li><a href="solutions.html">Human Resource</a></li>
+                        <li><a href="solutions.html">Business Intelligence</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">İletişim</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@rsmart.com.tr</li>
+                        <li><i class="fas fa-phone"></i> +90 552 003 37 03</li>
+                        <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 R-SMART. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

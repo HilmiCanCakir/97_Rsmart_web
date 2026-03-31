@@ -1,0 +1,9 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: r-smart-website
+    ports:
+      - "8201:80"
+    restart: unless-stopped

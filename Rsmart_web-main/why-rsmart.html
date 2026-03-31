@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="R-SMART - Neden Biz? - Süreç odaklı dijital dönüşüm">
+    <title>R-SMART | Neden R-SMART?</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .content-block {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(139, 49, 232, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            height: 100%;
+        }
+
+        .content-block:hover {
+            box-shadow: 0 8px 30px rgba(139, 49, 232, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .highlight-banner {
+            background: var(--gradient-primary);
+            border-radius: 20px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            margin: 60px 0;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(139, 49, 232, 0.3);
+        }
+
+        .highlight-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.6;
+        }
+
+        .highlight-banner h2 {
+            font-size: 2.5rem;
+            color: white;
+            position: relative;
+            z-index: 1;
+            margin: 0;
+            font-weight: 700;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature-card {
+            background: rgba(139, 49, 232, 0.03);
+            border: 1px solid rgba(139, 49, 232, 0.1);
+            padding: 30px;
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(139, 49, 232, 0.1);
+            transform: translateY(-5px);
+            border-color: rgba(139, 49, 232, 0.2);
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-title i {
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .value-card {
+            background: var(--gradient-primary);
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            color: var(--white);
+            box-shadow: 0 8px 15px rgba(139, 49, 232, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 25px rgba(139, 49, 232, 0.3);
+        }
+
+        .value-card i {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .value-card h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .highlight-banner h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-wrapper">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Anasayfa</a></li>
+                    <li><a href="platform.html">Platform</a></li>
+                    <li><a href="solutions.html">Çözümler</a></li>
+                    <li><a href="use-cases.html">Kullanım Senaryoları</a></li>
+                    <li><a href="why-rsmart.html" class="active">Neden R-SMART?</a></li>
+                    <li><a href="faq.html">SSS</a></li>
+                    <li><a href="about.html">Kurumsal</a></li>
+                    <li><a href="contact.html" class="btn-nav-demo">Demo Talep Et</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Neden R-SMART?</h1>
+            <p class="page-subtitle">Form odaklı değil, süreç odaklı dijital dönüşüm ile kurumunuza değer katın</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="section-padding">
+        <div class="container">
+
+            <!-- Rakiplerden Farkı -->
+            <div class="content-block">
+                <h2 style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Rakiplerden Farkı</h2>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <div class="feature-title">
+                            <i class="fas fa-random"></i>
+                            Sadece Form Değil, Süreç Odaklı
+                        </div>
+                        <p>Basit veri girişi ekranları değil, işin nasıl aktığını yöneten gelişmiş süreç tasarımları.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-title">
+                            <i class="fas fa-robot"></i>
+                            AI Destekli Otomatik Form Okuma
+                        </div>
+                        <p>Akıllı algoritmalar ile form verilerini otomatik analiz eder, manuel girişi ortadan kaldırır.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-title">
+                            <i class="fas fa-laptop-code"></i>
+                            No-code ile Hızlı Uyarlama
+                        </div>
+                        <p>Kod yazmaya gerek kalmadan sürükle-bırak arayüzlerle süreçlerinizi dakikalar içinde
+                            tasarlayın.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-title">
+                            <i class="fas fa-project-diagram"></i>
+                            Platformun Tamamıyla Entegre Çalışma
+                        </div>
+                        <p>İK, Proje Yönetimi ve Kalite gibi tüm modüllerle konuşan bütünleşik yapı.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highlight Banner -->
+            <div class="highlight-banner">
+                <h2>Formlar dijitalleşmez. Süreçler dijitalleşir.</h2>
+            </div>
+
+            <!-- Değer Özeti -->
+            <div class="content-block">
+                <h2 style="text-align: center; margin-bottom: 40px; font-size: 2.5rem;">Değer Özeti</h2>
+                <div class="value-grid">
+                    <div class="value-card">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                        <h4>Manuel iş yükü azalır</h4>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-rocket"></i>
+                        <h4>Süreçler hızlanır</h4>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h4>Hatalar düşer</h4>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-brain"></i>
+                        <h4>Veri anında anlam kazanır</h4>
+                    </div>
+                    <div class="value-card">
+                        <i class="fas fa-server"></i>
+                        <h4>BT üzerindeki baskı azalır</h4>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta section-padding" style="padding-top: 3rem;">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Çözümlerimizi Keşfetmeye Hazır mısınız?</h2>
+                <p class="cta-subtitle">Demo talep edin ve R-SMART platformunun gücünü deneyimleyin</p>
+                <a href="contact.html" class="btn btn-primary btn-large">Demo Talep Edin</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="logo.png" alt="R-SMART Logo">
+                    </div>
+                    <p class="footer-description">Kurumsal strateji ve performans yönetimi platformu ile kurumunuzun
+                        dijital dönüşümünü gerçekleştirin.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Hızlı Linkler</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Ana Sayfa</a></li>
+                        <li><a href="about.html">Hakkımızda</a></li>
+                        <li><a href="platform.html">Platform</a></li>
+                        <li><a href="contact.html">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Çözümler</h4>
+                    <ul class="footer-links">
+                        <li><a href="solutions.html">Strategy Suite</a></li>
+                        <li><a href="solutions.html">Project Management</a></li>
+                        <li><a href="solutions.html">Human Resource</a></li>
+                        <li><a href="solutions.html">Business Intelligence</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">İletişim</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-envelope"></i> info@rsmart.com.tr</li>
+                        <li><i class="fas fa-phone"></i> +90 552 003 37 03</li>
+                        <li><i class="fas fa-map-marker-alt"></i> İstanbul, Türkiye</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 R-SMART. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
